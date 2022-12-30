@@ -31,6 +31,7 @@ cleanup:
 	-rm $(DIST_BIN) $(LOADER_NAME) bochs.log debug.log 
 run:
 	clear
+	make all
 	-rm boot.img.lock bochs.log debug.log
 	bochs
 read:
