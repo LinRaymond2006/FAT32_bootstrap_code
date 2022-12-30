@@ -35,7 +35,7 @@
 ;=========================
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 INIT:
-MOV AX, CX
+MOV AX, CS
 MOV DS, AX
 MOV ES, AX
 MOV SS, AX
