@@ -16,6 +16,9 @@ all:
 	#MAKE LOADER.SYS
 	nasm $(NASMFLAGS) $(LOADER_SOURCE) -o $(LOADER_NAME)
 	
+	#LOADER.SYS for debugging
+	#cp LOADER.SYS.SAMPLE $(LOADER_NAME)
+
 	xxd -g 1 $(DIST_BIN)
 	wc < $(DIST_BIN)
 	#not tested the dd command yet
@@ -28,7 +31,7 @@ all:
 dump:
 	objdump -mi8086 -bbinary -Mintel -D $(DIST_BIN)
 cleanup:
-	-rm $(DIST_BIN) $(LOADER_NAME) bochs.log debug.log 
+	-rm $(DIST_BIN) $(LOADER_NAME) bochs.log debug.log boot.img
 run:
 	clear
 	make all

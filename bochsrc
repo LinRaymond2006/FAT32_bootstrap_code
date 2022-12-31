@@ -4,8 +4,8 @@ config_interface: textconfig
 display_library: term
 #display_library: x
 memory: host=32, guest=32
-romimage: file="./BIOS-bochs-latest", address=0x00000000, options=none
-vgaromimage: file="./vgabios.bin"
+romimage: file="BOCHS_BIOS/BIOS-bochs-latest", address=0x00000000, options=none
+vgaromimage: file="BOCHS_BIOS/vgabios.bin"
 boot: disk
 floppy_bootsig_check: disabled=0
 # no floppya

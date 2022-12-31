@@ -1,3 +1,6 @@
+;NOTE: THIS DOCUMENT IS WHAT SHOULD CALLER PASS TO THE FUNCTION IN "MAIN.INC"
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;FUNCTION "READ_ATA"
 ;EAX:SECTOR OFFSET
@@ -6,6 +9,20 @@
 ;CX:NUMBER OF SECTORS TO READ
 
 ;RETURNS:NONE
+
+
+
+;STRUCTURE OF A 16-BYTE STANDARD DISK PACKET:
+;DISK_PACKET:
+;	.PACKET_SIZE:	DB 0X10
+;	.RESERVED:		DB 0
+;	SECTOR_COUNT:	DW 0
+;	ADDR:
+;		BUFFER_OFFSET:	DW 0
+;		BUFFER_SEG:	DW 0
+;	LBA:
+;		LOW_LBA_NUMBER:	DD 0
+;		.HIGH_LBA_NUMBER:	DD 0
 
 ;To read a disk:
 
@@ -18,6 +35,9 @@
 ;The carry flag will be set if there is any error during the transfer. AH should be set to 0 on success.
 ;
 ;To write to a disk, set AH = 0x43.
+
+
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
